@@ -148,7 +148,7 @@ def create_optimized_model():
 
 # ==================== VALIDATION METHODS ====================
 
-def perform_editor_requested_validations(model, X, y):
+def perform_validations(model, X, y):
 
     
     # 1. Nested cross-validation (5-fold outer, 5-fold inner)
