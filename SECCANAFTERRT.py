@@ -197,19 +197,6 @@ def create_pipeline_diagram():
     plt.close()
     print("Saved ml_pipeline.png")
 
-# 6. Generate Model Comparison Table
-def create_model_comparison():
-    models = {
-        'Random Forest': {'MSE': 0.001, 'R-squared': 0.99, 'MAE': 0.002},
-        'Gradient Boosting': {'MSE': 0.004, 'R-squared': 0.97, 'MAE': 0.012},
-        'SVM': {'MSE': 0.015, 'R-squared': 0.89, 'MAE': 0.032}
-    }
-
-    df = pd.DataFrame(models).T
-    print("\nTable 2: Model Performance Comparison")
-    print(tabulate(df, headers='keys', tablefmt='grid'))
-    return df
-
 # Main execution
 if __name__ == "__main__":
     print("")
