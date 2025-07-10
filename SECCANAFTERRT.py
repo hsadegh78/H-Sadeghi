@@ -592,56 +592,7 @@ def generate_patient_data(n_samples=1240):
 # Generate the full dataset
 data = generate_patient_data()
 
-# =============================================
-# 2. TABLE GENERATION
-# =============================================
 
-def create_all_tables(data):
-    """Create all tables from the research paper"""
-
-    # Table 1: Incidence Rates by Sex and Age
-    table1 = pd.DataFrame({
-        'Primary Cancer': ['Breast', 'Breast', 'Hodgkin Lymphoma', 'Hodgkin Lymphoma', 'Prostate'],
-        'SC': ['Lung', 'Sarcoma', 'Breast', 'Lung', 'Bladder'],
-        'Sex': ['Female', 'Female', 'Female', 'Male', 'Male'],
-        'Age at Exposure': ['<40', '40-60', '<30', '<30', '>60'],
-        'Incidence Rate (per 10,000)': [15.2, 8.7, 25.4, 12.3, 10.5]
-    })
-
-    # Table 2: Radiation Dose-Response Relationships
-    table2 = pd.DataFrame({
-        'Primary Cancer': ['Breast', 'Breast', 'Hodgkin Lymphoma', 'Hodgkin Lymphoma', 'Prostate', 'Prostate'],
-        'SC': ['Lung', 'Sarcoma', 'Breast', 'Lung', 'Bladder', 'Bladder'],
-        'Dose (Gy)': ['20-30', '>50', '30-40', '20-30', '60-70', '70-80'],
-        'Risk Ratio': [1.8, 4.2, 3.5, 2.1, 1.9, 2.5],
-        '95% CI': ['1.5-2.1', '3.5-5.0', '2.8-4.3', '1.7-2.6', '1.4-2.5', '2.0-3.0']
-    })
-
-    # Table 3: Pathological Characteristics
-    table3 = pd.DataFrame({
-        'SC': ['Lung', 'Sarcoma', 'Breast', 'Bladder'],
-        'Histology': ['Adenocarcinoma', 'Osteosarcoma', 'Ductal Carcinoma', 'Transitional Cell'],
-        'Grade': ['High', 'High', 'Intermediate', 'Low'],
-        'Stage': ['III', 'II', 'I', 'II'],
-        'Mutations': ['EGFR, KRAS', 'TP53, RB1', 'BRCA1, BRCA2', 'FGFR3, TP53']
-    })
-
-    # Table 4: Feature Preprocessing
-    table4 = pd.DataFrame({
-        'Feature': ['Radiation Dose', 'Age at Exposure', 'TP53 Mutation', 'Primary Cancer Type', 'Histology'],
-        'Type': ['Continuous', 'Continuous', 'Binary', 'Categorical', 'Categorical'],
-        'Preprocessing': ['Min-max normalization', 'Standardization', 'One-hot encoding', 'One-hot encoding', 'Label encoding']
-    })
-
-    return {
-        'Table1_Incidence_Rates': table1,
-        'Table2_Dose_Response': table2,
-        'Table3_Pathology': table3,
-        'Table4_Preprocessing': table4
-    }
-
-# Generate all static tables
-tables = create_all_tables(data)
 
 # =============================================
 # 3. MACHINE LEARNING MODEL
@@ -712,25 +663,6 @@ tables['Table5_Performance'] = pd.DataFrame({
     'Test Set': [metrics['Test']['MSE'], metrics['Test']['R2'], metrics['Test']['MAE']]
 })
 
-tables['Table6_Feature_Importance'] = pd.DataFrame({
-    'Feature': ['Radiation Dose (Gy)', 'Age at Exposure', 'TP53 Mutation Status',
-               'Primary Cancer Type', 'Histology'],
-    'Importance (Gini)': [0.42, 0.38, 0.25, 0.18, 0.12],
-    'Selected (O/X)': ['O', 'O', 'O', 'X', 'X']
-})
-
-tables['Table7_Predicted_Rates'] = pd.DataFrame({
-    'Primary Cancer': ['Breast', 'Prostate', 'Hodgkin Lymphoma', 'Hodgkin Lymphoma', 'Colorectal'],
-    'SC': ['Lung', 'Bladder', 'Breast', 'Lung', 'Liver'],
-    'Predicted Incidence Rate (per 10,000)': [15.2, 10.3, 25.4, 12.1, 8.9]
-})
-
-tables['Table8_Model_Comparison'] = pd.DataFrame({
-    'Model': ['RF (Proposed)', 'Linear Regression', 'Support Vector Machine', 'Gradient Boosting'],
-    'MSE': [0.002, 2.34, 1.89, 0.45],
-    'R-squared': [0.98, 0.85, 0.89, 0.97],
-    'MAE': [0.005, 1.12, 0.98, 0.32]
-})
 
 # =============================================
 # 4. FIGURE GENERATION
@@ -927,52 +859,6 @@ data = generate_patient_data()
 # 2. TABLE GENERATION
 # =============================================
 
-def create_all_tables(data):
-    """Create all tables from the research paper"""
-
-    # Table 1: Incidence Rates by Sex and Age
-    table1 = pd.DataFrame({
-        'Primary Cancer': ['Breast', 'Breast', 'Hodgkin Lymphoma', 'Hodgkin Lymphoma', 'Prostate'],
-        'SC': ['Lung', 'Sarcoma', 'Breast', 'Lung', 'Bladder'],
-        'Sex': ['Female', 'Female', 'Female', 'Male', 'Male'],
-        'Age at Exposure': ['<40', '40-60', '<30', '<30', '>60'],
-        'Incidence Rate (per 10,000)': [15.2, 8.7, 25.4, 12.3, 10.5]
-    })
-
-    # Table 2: Radiation Dose-Response Relationships
-    table2 = pd.DataFrame({
-        'Primary Cancer': ['Breast', 'Breast', 'Hodgkin Lymphoma', 'Hodgkin Lymphoma', 'Prostate', 'Prostate'],
-        'SC': ['Lung', 'Sarcoma', 'Breast', 'Lung', 'Bladder', 'Bladder'],
-        'Dose (Gy)': ['20-30', '>50', '30-40', '20-30', '60-70', '70-80'],
-        'Risk Ratio': [1.8, 4.2, 3.5, 2.1, 1.9, 2.5],
-        '95% CI': ['1.5-2.1', '3.5-5.0', '2.8-4.3', '1.7-2.6', '1.4-2.5', '2.0-3.0']
-    })
-
-    # Table 3: Pathological Characteristics
-    table3 = pd.DataFrame({
-        'SC': ['Lung', 'Sarcoma', 'Breast', 'Bladder'],
-        'Histology': ['Adenocarcinoma', 'Osteosarcoma', 'Ductal Carcinoma', 'Transitional Cell'],
-        'Grade': ['High', 'High', 'Intermediate', 'Low'],
-        'Stage': ['III', 'II', 'I', 'II'],
-        'Mutations': ['EGFR, KRAS', 'TP53, RB1', 'BRCA1, BRCA2', 'FGFR3, TP53']
-    })
-
-    # Table 4: Feature Preprocessing
-    table4 = pd.DataFrame({
-        'Feature': ['Radiation Dose', 'Age at Exposure', 'TP53 Mutation', 'Primary Cancer Type', 'Histology'],
-        'Type': ['Continuous', 'Continuous', 'Binary', 'Categorical', 'Categorical'],
-        'Preprocessing': ['Min-max normalization', 'Standardization', 'One-hot encoding', 'One-hot encoding', 'Label encoding']
-    })
-
-    return {
-        'Table1_Incidence_Rates': table1,
-        'Table2_Dose_Response': table2,
-        'Table3_Pathology': table3,
-        'Table4_Preprocessing': table4
-    }
-
-# Generate all static tables
-tables = create_all_tables(data)
 
 # =============================================
 # 3. MACHINE LEARNING MODEL
@@ -1043,25 +929,6 @@ tables['Table5_Performance'] = pd.DataFrame({
     'Test Set': [metrics['Test']['MSE'], metrics['Test']['R2'], metrics['Test']['MAE']]
 })
 
-tables['Table6_Feature_Importance'] = pd.DataFrame({
-    'Feature': ['Radiation Dose (Gy)', 'Age at Exposure', 'TP53 Mutation Status',
-               'Primary Cancer Type', 'Histology'],
-    'Importance (Gini)': [0.42, 0.38, 0.25, 0.18, 0.12],
-    'Selected (O/X)': ['O', 'O', 'O', 'X', 'X']
-})
-
-tables['Table7_Predicted_Rates'] = pd.DataFrame({
-    'Primary Cancer': ['Breast', 'Prostate', 'Hodgkin Lymphoma', 'Hodgkin Lymphoma', 'Colorectal'],
-    'SC': ['Lung', 'Bladder', 'Breast', 'Lung', 'Liver'],
-    'Predicted Incidence Rate (per 10,000)': [15.2, 10.3, 25.4, 12.1, 8.9]
-})
-
-tables['Table8_Model_Comparison'] = pd.DataFrame({
-    'Model': ['RF (Proposed)', 'Linear Regression', 'Support Vector Machine', 'Gradient Boosting'],
-    'MSE': [0.002, 2.34, 1.89, 0.45],
-    'R-squared': [0.98, 0.85, 0.89, 0.97],
-    'MAE': [0.005, 1.12, 0.98, 0.32]
-})
 
 # =============================================
 # 4. FIGURE GENERATION
