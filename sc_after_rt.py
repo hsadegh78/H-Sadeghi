@@ -1,3 +1,8 @@
+"""
+COMPLETE CODE FOR SECONDARY CANCER RISK PREDICTION STUDY
+This script reproduces all calculations, tables, and figures from the paper:
+"Machine Learning for Early Prediction of Secondary Cancer After Radiotherapy"
+"""
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -67,33 +72,6 @@ def train_and_evaluate(X, y):
 
 
     return rf, X_train, X_test, y_train, y_test
-
-# 4. Generate Feature Importance Plot
-def plot_feature_importance(model, X_train):
-    importance = model.feature_importances_
-    features = X_train.columns
-    indices = np.argsort(importance)[::-1]
-
-    plt.figure(figsize=(10, 6))
-    plt.title("Feature Importance Rankings", fontsize=14)
-    bars = plt.bar(range(X_train.shape[1]), importance[indices], color='skyblue')
-    plt.xticks(range(X_train.shape[1]), [features[i] for i in indices], rotation=45)
-    plt.ylabel("Gini Importance", fontsize=12)
-    plt.grid(axis='y', linestyle='--', alpha=0.7)
-
-    # Add values on top of bars
-    for bar in bars:
-        height = bar.get_height()
-        plt.annotate(f'{height:.2f}',
-                     xy=(bar.get_x() + bar.get_width() / 2, height),
-                     xytext=(0, 3),  # 3 points vertical offset
-                     textcoords="offset points",
-                     ha='center', va='bottom')
-
-    plt.tight_layout()
-    plt.savefig("feature_importance.png")
-    plt.close()
-    print("Saved feature_importance.png")
 
 # 5. Generate Model Pipeline Diagram
 def create_pipeline_diagram():
@@ -228,10 +206,8 @@ def plot_feature_importance(model, X_train):
                      ha='center', va='bottom')
 
     plt.tight_layout()
-    plt.savefig("feature_importance.png")
     plt.close()
-    print("Saved feature_importance.png")
-
+    
 # 5. Generate Model Pipeline Diagram
 def create_pipeline_diagram():
     plt.figure(figsize=(8, 6))
@@ -337,7 +313,6 @@ sns.heatmap(corr, mask=mask, annot=True, fmt=".2f", cmap='coolwarm',
             center=0, vmin=-1, vmax=1, cbar_kws={'label': "Pearson's r"})
 plt.title('All Features Correlation')
 plt.tight_layout()
-plt.savefig('heatmap_all_features.png', dpi=300)
 
 # Create selected features heatmap (example: remove one feature)
 plt.figure(figsize=(5,4))
@@ -864,11 +839,6 @@ for table_name, table_data in tables.items():
     print(f"\n{table_name}:")
     print(table_data.head())
 
-"""
-COMPLETE CODE FOR SECONDARY CANCER RISK PREDICTION STUDY
-This script reproduces all calculations, tables, and figures from the paper:
-"Machine Learning for Early Prediction of Secondary Cancer After Radiotherapy"
-"""
 
 import numpy as np
 import pandas as pd
@@ -1199,20 +1169,6 @@ for table_name, table_data in tables.items():
     table_data.to_csv(f'{table_name}.csv', index=False)
     print(f"\n{table_name}:")
     print(table_data.head())
-
-"""
-COMPLETE RESEARCH PAPER RESULTS REPRODUCTION
-Machine Learning for Early Prediction of Secondary Cancer After Radiotherapy
-
-This code exactly reproduces all numerical results and figures from:
-H. Sadeghi et al., "Machine Learning for Early Prediction of Secondary Cancer After Radiotherapy"
-
-The implementation includes:
-1. Exact reproduction of all 8 tables from the paper
-2. Generation of all figures with identical formatting
-3. Complete ML pipeline matching the paper's methodology
-4. Unit tests to verify result accuracy
-"""
 
 import numpy as np
 import pandas as pd
