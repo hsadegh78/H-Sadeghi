@@ -1,3 +1,4 @@
+"""
 COMPLETE CODE FOR SECONDARY CANCER RISK PREDICTION STUDY
 This script reproduces all calculations, tables, and figures from the paper:
 "Machine Learning for Early Prediction of Secondary Cancer After Radiotherapy"
@@ -182,30 +183,6 @@ def train_and_evaluate(X, y):
 
     return rf, X_train, X_test, y_train, y_test
 
-# 4. Generate Feature Importance Plot
-def plot_feature_importance(model, X_train):
-    importance = model.feature_importances_
-    features = X_train.columns
-    indices = np.argsort(importance)[::-1]
-
-    plt.figure(figsize=(10, 6))
-    plt.title("Feature Importance Rankings", fontsize=14)
-    bars = plt.bar(range(X_train.shape[1]), importance[indices], color='skyblue')
-    plt.xticks(range(X_train.shape[1]), [features[i] for i in indices], rotation=45)
-    plt.ylabel("Gini Importance", fontsize=12)
-    plt.grid(axis='y', linestyle='--', alpha=0.7)
-
-    # Add values on top of bars
-    for bar in bars:
-        height = bar.get_height()
-        plt.annotate(f'{height:.2f}',
-                     xy=(bar.get_x() + bar.get_width() / 2, height),
-                     xytext=(0, 3),  # 3 points vertical offset
-                     textcoords="offset points",
-                     ha='center', va='bottom')
-
-    plt.tight_layout()
-    plt.close()
 
 # 5. Generate Model Pipeline Diagram
 def create_pipeline_diagram():
@@ -263,9 +240,7 @@ if __name__ == "__main__":
     # Train model and show performance
     model, X_train, X_test, y_train, y_test = train_and_evaluate(X, y)
 
-    # Generate feature importance plot
-    plot_feature_importance(model, X_train)
-
+    
     # Create pipeline diagram
     create_pipeline_diagram()
 
@@ -287,10 +262,7 @@ if __name__ == "__main__":
     # Train model and show performance
     model, X_train, X_test, y_train, y_test = train_and_evaluate(X, y)
 
-    # Generate feature importance plot
-    plot_feature_importance(model, X_train)
-
-    # Create pipeline diagram
+     # Create pipeline diagram
     create_pipeline_diagram()
 
     # Show model comparison
@@ -456,16 +428,6 @@ def create_analysis_tables(data, model, X_train, X_test, y_train, y_test):
 
 # 3. Generate Visualizations
 def create_visualizations(model, X_train, data):
-    # Figure 1: Feature Importance
-    plt.figure(figsize=(10, 6))
-    importance = pd.Series(model.feature_importances_, index=X_train.columns)
-    importance.nlargest(10).plot(kind='barh', color='steelblue')
-    plt.title('Top 10 Predictive Features by Gini Importance', fontsize=14)
-    plt.xlabel('Gini Importance Score', fontsize=12)
-    plt.ylabel('')
-    plt.tight_layout()
-    plt.savefig('feature_importance.png')
-    plt.close()
 
     # Figure 2: Dose-Response Relationship
     plt.figure(figsize=(10, 6))
@@ -506,7 +468,6 @@ if __name__ == "__main__":
     tables = create_analysis_tables(data, model, X_train, X_test, y_train, y_test)
     # Create visualizations
     create_visualizations(model, X_train, data)
-    print("\nVisualizations saved as: feature_importance.png, dose_response.png")
 
 import numpy as np
 import pandas as pd
