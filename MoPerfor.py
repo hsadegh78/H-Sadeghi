@@ -148,11 +148,6 @@ if __name__ == "__main__":
     for name, imp in zip(feature_names, rf.feature_importances_):
         print(f"{name}: {imp:.4f}")
 
-"""
-COMPLETE CODE FOR SECONDARY CANCER RISK PREDICTION STUDY
-This script reproduces all calculations, tables, and figures from the paper:
-"Machine Learning for Early Prediction of Secondary Cancer After Radiotherapy"
-"""
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
