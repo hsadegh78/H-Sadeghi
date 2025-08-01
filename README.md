@@ -1,13 +1,21 @@
+# Machine Learning for Early Prediction of Secondary Cancer After Radiotherapy
 
-*   `california_housing_data*.csv` is California housing data from the 1990 US
-    Census; more information is available at:
-    https://docs.google.com/document/d/e/2PACX-1vRhYtsvc5eOR2FWNCwaBiKL6suIOrxJig8LcSBbmCbyYsayia_DvPOOBlXZ4CAlQ5nlDD8kTaIDRwrN/pub
+This repository contains the synthetic data and code used to reproduce the methods and results described in the manuscript "Machine Learning for Early Prediction of Secondary Cancer After Radiotherapy".
 
-*   `mnist_*.csv` is a small sample of the
-    [MNIST database](https://en.wikipedia.org/wiki/MNIST_database), which is
-    described at: http://yann.lecun.com/exdb/mnist/
+Real clinical data cannot be shared due to ethical/legal restrictions.  
+# Data Disclosure  
+This repository contains **SYNTHETIC DATA** generated to replicate the study:  
+"Machine Learning for Early Prediction of Secondary Cancer After Radiotherapy".  
 
-*   `anscombe.json` contains a copy of
-    [Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet); it
-    was originally described in
+## Why Synthetic Data?  
+- Real clinical data cannot be shared due to:  
+  ✦ IRB restrictions (IR.ARAKMU.REC.1403.158)  
+  ✦ Patient privacy regulations (HIPAA/GDPR compliance)  
+  ✦ Data use agreements with registry providers (SEER/ESTRO)  
+- Synthetic data preserves statistical patterns without exposing sensitive information.    
+
+This repository includes only the files directly related to the published study. All unrelated files or datasets have been removed to maintain consistency between the manuscript and repository.
+
+For further questions, please contact: [H-Sadeghi@araku.ac.ir]
+
 
