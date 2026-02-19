@@ -1,4 +1,4 @@
-README.md for Whole-Genome Deep Learning Chemotherapy Response Prediction in Colorectal Cancer
+Whole-Genome Deep Learning Chemotherapy Response Prediction in Colorectal Cancer
 
 Project Overview
 
