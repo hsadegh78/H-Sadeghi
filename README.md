@@ -1,5 +1,7 @@
 README.md for Whole-Genome Deep Learning Chemotherapy Response Prediction in Colorectal Cancer
+
 Project Overview
+
 This repository contains the complete implementation of a hybrid deep learning framework for predicting chemotherapy response in colorectal cancer (CRC) patients using whole-genome sequencing data. The model integrates convolutional neural networks (CNNs) and bidirectional long short-term memory (BiLSTM) networks with an attention mechanism to analyze somatic mutations, evolutionary conservation, chromatin accessibility, and 3D genome architecture.
 
 Key Features:
